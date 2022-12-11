@@ -1,4 +1,4 @@
-package sbt.pdris.task12application;
+package sbt.pdris.Task1App;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
