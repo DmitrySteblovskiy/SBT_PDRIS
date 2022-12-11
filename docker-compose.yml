@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  users_setter:
+    image: imageget
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "9000:8080"
+    links:
+      - db
+  db:
+    image: mongo
+    container_name: "db"
+    restart: always
+    environment:
+      port: "27017:27017"
