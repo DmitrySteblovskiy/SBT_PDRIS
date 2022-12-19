@@ -1,0 +1,5 @@
+- name: Apply roles to localhsot
+  hosts: 127.0.0.1
+  roles:
+    - src/main/java/sbt/pdris/Task1App/DBSetter
+    - src/main/java/sbt/pdris/Task1App/DBGetter
