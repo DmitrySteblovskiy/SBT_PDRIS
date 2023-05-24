@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: ingress-gw
+spec:
+  selector:
+    istio: ${HOSTNAME_INGRESS} # селекторы должны совпадать с селекторами в deployment ingress istio
+  servers:
+    - hosts:
+        - '*'
+      port:
+        name: https
+        number: 5443
+        protocol: HTTPS
+      tls:
+        caCertificates: /etc/istio/ingressgateway-ca-certs/ca-chain.cert.pem # Путь до СА в deployment istio ingress
+        mode: MUTUAL
+        privateKey: /etc/istio/ingressgateway-certs/tls.key # Путь до ключа в deployment istio ingress
+        serverCertificate: /etc/istio/ingressgateway-certs/tls.crt # Путь до клиенского сертификата в deployment istio ingress

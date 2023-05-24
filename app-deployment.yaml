@@ -1,0 +1,23 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: test-env
+  labels:
+    app: test-env
+spec:
+  selector:
+    matchLabels:
+      app: test-env
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: test-env
+    spec:
+      containers:
+      - name: app
+        image: ubuntu:latest
+        imagePullPolicy: Always
+        command: ["/bin/sh", "-ec", "while :; do echo '.'; curl http://test.test ; done"]
