@@ -10,7 +10,7 @@ spec:
         - '*'
       port:
         name: https
-        number: 5443
+        number: 5447
         protocol: HTTPS
       tls:
         caCertificates: /etc/istio/ingressgateway-ca-certs/ca-chain.cert.pem # Путь до СА в deployment istio ingress

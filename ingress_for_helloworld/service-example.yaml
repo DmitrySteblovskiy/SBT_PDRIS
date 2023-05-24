@@ -6,12 +6,12 @@ spec:
   ports:
     - name: status-port
       protocol: TCP
-      port: 15020
-      targetPort: 15020
+      port: 15021
+      targetPort: 15021
     - name: https
       protocol: TCP
-      port: 443
-      targetPort: 5443
+      port: 447
+      targetPort: 5447
   selector:
     app: ${HOSTNAME_INGRESS}
     istio: ${HOSTNAME_INGRESS}

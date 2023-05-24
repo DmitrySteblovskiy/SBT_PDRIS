@@ -15,4 +15,4 @@ spec:
         - destination:
             host: ${SERVICE_NAME} # Название сервиса, куда будет поступать трафик
             port:
-              number: 5000
+              number: 5050
