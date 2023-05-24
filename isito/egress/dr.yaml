@@ -1,0 +1,25 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: egress-dr
+spec:
+  host: ${HOSTNAME_OUT}
+  trafficPolicy:
+    connectionPool:
+      http:
+        http1MaxPendingRequests: 1024
+        http2MaxRequests: 10240
+        maxRequestsPerConnection: 1024
+      tcp:
+        maxConnections: 10240
+    outlierDetection:
+      baseEjectionTime: 30s
+      consecutiveErrors: 1
+      interval: 30s
+      maxEjectionPercent: 50
+    tls:
+      caCertificates: /etc/istio/egressgateway-ca-certs/root.crt # Путь до СА в deployment istio egress
+      clientCertificate: /etc/istio/egressgateway-certs/tls.crt # Путь до клиенсткого сертификата в deployment istio egress
+      mode: MUTUAL
+      privateKey: /etc/istio/egressgateway-certs/tls.key # Путь до ключа в deployment istio egress
+      sni: ${HOSTNAME_OUT}

@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ${HOSTNAME_EGRESS}
+spec:
+  ports:
+    - name: status-port
+      protocol: TCP
+      port: 15020
+      targetPort: 15020
+    - name: http-8080
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: ${HOSTNAME_EGRESS}
+  type: ClusterIP
+
+
