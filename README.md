@@ -1,7 +1,8 @@
 # SBT_PDRIS
 
 К счастью, второе дз легко переделывается из третьего)
-\par
+                       
+                       
 Вместо httpbin example использовал beeceptor в качестве External Service. Очень удобно - всем советую.
 (ссылка на мой эндпоинт: https://sbttest.free.beeceptor.com)
 
