@@ -1,0 +1,1 @@
+curl -v -X GET 'https://sbttest.free.beeceptor.com/todos' -H 'header: value'

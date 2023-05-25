@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: egress-se
+spec:
+  hosts:
+    - ${HOSTNAME_OUT}
+  location: MESH_EXTERNAL
+  ports:
+    - name: https-443
+      number: 443
+      protocol: TLS
+    - name: http-8080
+      number: 8080
+      protocol: HTTP
+  resolution: DNS

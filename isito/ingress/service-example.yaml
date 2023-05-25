@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ${HOSTNAME_INGRESS}
+spec:
+  ports:
+    - name: status-port
+      protocol: TCP
+      port: 15020
+      targetPort: 15020
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 5443
+  selector:
+    app: ${HOSTNAME_INGRESS}
+    istio: ${HOSTNAME_INGRESS}
+  type: ClusterIP

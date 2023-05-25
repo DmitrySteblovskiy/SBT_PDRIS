@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: egress-gw
+spec:
+  selector:
+    app: ${HOSTNAME_EGRESS} # селекторы должны совпадать с селекторами в deployment egress istio
+    istio: ${HOSTNAME_EGRESS} # селекторы должны совпадать с селекторами в deployment egress istio
+  servers:
+    - hosts:
+        - ${HOSTNAME_OUT}
+      port:
+        name: http-8080
+        number: 8080
+        protocol: HTTP

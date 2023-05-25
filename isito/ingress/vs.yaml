@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: ingress-vs
+spec:
+  gateways:
+    - ingress-gw
+  hosts:
+    - ${HOSTNAME_IN}
+  http:
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            host: ${SERVICE_NAME} # Название сервиса, куда будет поступать трафик
+            port:
+              number: 5000
