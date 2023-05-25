@@ -4,6 +4,7 @@ kubectl apply -f app-deployment.yaml
 
 kubectl apply -f gateway1.yaml
 kubectl apply -f gateway2.yaml
+kubectl apply -f Mutual.yaml
 
 kubectl apply -f isito/egress/dr.yaml
 kubectl apply -f isito/egress/gw.yaml
